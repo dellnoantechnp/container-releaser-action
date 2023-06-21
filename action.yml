@@ -1,0 +1,17 @@
+name: "Python Container Action Template dellnoantechnp"
+description: "Get started with Python Container actions"
+author: "dellnoantechnp"
+branding:
+  icon: "check"
+  color: "gray-dark"
+inputs:
+  dockerfile:
+    description: "Input dockerfile path to use"
+    required: true
+    default: "./Dockerfile"
+outputs:
+  version:
+    description: "Output this dockerfile version tag"
+runs:
+  using: "docker"
+  image: "Dockerfile"

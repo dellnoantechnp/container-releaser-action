@@ -1,6 +1,19 @@
 import os
 # import requests  # noqa We are just importing this to prove the dependency installed correctly
 from dockerfile_parse import DockerfileParser
+import subprocess
+import lookup_latest_tag
+
+
+def run_command(command: str) -> str:
+    proc = subprocess.Popen(command,
+                            shell=True,
+                            stdin=subprocess.PIPE,
+                            stdout=subprocess.PIPE,
+                            stderr=subprocess.PIPE
+                            )
+    stdout_value, stderr_value = proc.communicate()
+    return stdout_value.decode().strip()
 
 
 def main():
